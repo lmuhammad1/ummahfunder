@@ -1,1 +1,10 @@
-<h1>This is the Index page for the Projects of UmmahFunder</h1>
+<h1>Projects</h1>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li><strong><%= project.name %></strong>
+    <%= project.description %> <%= number_to_currency(project.target_pledge_amount) %></li>
+  <% end %>
+
+
+</ul>
