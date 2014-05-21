@@ -1,10 +1,25 @@
 <h1>Projects</h1>
 
-<ul>
-  <% @projects.each do |project| %>
-    <li><strong><%= project.name %></strong>
-    <%= project.description %> <%= number_to_currency(project.target_pledge_amount) %></li>
-  <% end %>
+<% @projects.each do |project| %>
+  <article>
+    <header><h2> <%= project.name %> </h2> </header>
+    <p> <%= project.description %> </p>
+
+    <table>
+      <tr>
+        <th>Pledge Amount: </th>
+        <td><%= number_to_currency project.target_pledge_amount %> </td>
+      </tr>
+      <tr>
+        <th>Website: </th>
+        <td><%= project.website %> </td>
+      </tr>
+      <tr>
+        <th>Deadline: </th>
+        <td><%= project.pledging_ends_on %> </td>
+      </tr>
+    </table>
+  </article>
+<% end %>
 
 
-</ul>
