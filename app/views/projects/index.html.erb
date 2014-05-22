@@ -1,9 +1,9 @@
-<h1>Projects</h1>
+<h1><%= pluralize(@projects.size, 'Project') %></h1>
 
 <% @projects.each do |project| %>
   <article>
     <header><h2> <%= project.name %> </h2> </header>
-    <p> <%= project.description %> </p>
+    <p> <%= project.description.truncate(150, separator: ' ') %> </p>
 
     <table>
       <tr>
@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <th>Deadline: </th>
-        <td><%= project.pledging_ends_on %> </td>
+        <td><%= days_remaining(project) %> </td>
       </tr>
     </table>
   </article>
